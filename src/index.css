@@ -1,0 +1,131 @@
+@import 'leaflet/dist/leaflet.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 53% 7%;
+    --foreground: 0 0% 100%;
+
+    --card: 20 30% 10%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 20 30% 10%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 14 100% 56%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 20 20% 15%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 20 15% 18%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 37 91% 55%;
+    --accent-foreground: 20 53% 7%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 100% / 0.08;
+    --input: 0 0% 100% / 0.05;
+    --ring: 14 100% 56%;
+
+    --radius: 1rem;
+
+    --success: 142 71% 45%;
+    --teal: 173 80% 40%;
+    --purple: 258 90% 66%;
+
+    --glass-bg: 0 0% 100% / 0.04;
+    --glass-border: 0 0% 100% / 0.08;
+    --glass-border-hover: 0 0% 100% / 0.15;
+    --input-border: 0 0% 100% / 0.12;
+    --input-focus-shadow: 0 0 0 2px rgba(255, 90, 31, 0.4);
+
+    --sidebar-background: 20 53% 5%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 14 100% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 20 20% 12%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 100% / 0.08;
+    --sidebar-ring: 14 100% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-glass border border-glass-border rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-200;
+  }
+
+  .glass-card-hover:hover {
+    border-color: hsl(var(--glass-border-hover));
+  }
+
+  .glass-input {
+    @apply bg-input border border-input-border rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground outline-none transition-all duration-200;
+  }
+
+  .glass-input:focus {
+    box-shadow: var(--input-focus-shadow);
+    border-color: hsl(var(--primary) / 0.5);
+  }
+
+  .coral-button {
+    @apply bg-primary text-primary-foreground rounded-full px-6 py-3 font-semibold transition-all duration-200 hover:brightness-110 active:scale-[0.98];
+  }
+
+  .ghost-button {
+    @apply border border-glass-border-hover text-foreground rounded-full px-6 py-3 font-medium transition-all duration-200 hover:bg-glass;
+  }
+
+  .category-pill {
+    @apply px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer;
+  }
+
+  .category-pill-active {
+    @apply category-pill bg-primary text-primary-foreground;
+  }
+
+  .category-pill-inactive {
+    @apply category-pill bg-glass border border-glass-border text-muted-foreground hover:text-foreground hover:border-glass-border-hover;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+
+/* Floating animation for landing page */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}

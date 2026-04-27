@@ -1,0 +1,18 @@
+{
+  "vada": {
+    "dish": "Vada",
+    "localPath": "/dishes/vada.jpg",
+    "provider": "pixabay",
+    "sourceUrl": "https://pixabay.com/photos/parippu-vada-food-dish-sri-lankan-6305691/",
+    "photographer": "KavindaF",
+    "fetchedAt": "2026-04-13T16:26:22.092Z"
+  },
+  "chicken 65": {
+    "dish": "Chicken 65",
+    "localPath": "/dishes/chicken-65.jpg",
+    "provider": "pixabay",
+    "sourceUrl": "https://pixabay.com/photos/fried-chicken-food-fried-chicken-3949947/",
+    "photographer": "NikkkOO",
+    "fetchedAt": "2026-04-13T16:26:38.759Z"
+  }
+}

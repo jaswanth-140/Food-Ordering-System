@@ -1,0 +1,25 @@
+# One dish per line. Edit this list before running bulk download.
+Chicken Biryani
+Mutton Biryani
+Veg Biryani
+Masala Dosa
+Idli
+Medu Vada
+Poori
+Paratha
+Parotta
+Paneer Butter Masala
+Butter Chicken
+Chicken 65
+Chicken Manchurian
+Chicken Hakka Noodles
+Chicken Fried Rice
+Tea
+Cold Coffee
+Chocolate Truffle Pastry
+Gulab Jamun
+Burger
+Pizza
+Sandwich
+Fries
+
