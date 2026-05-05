@@ -7,6 +7,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   isAdmin: boolean;
   login: (email: string, password: string) => Promise<{ success: boolean; error?: string }>;
+  loginWithGoogleIdToken: (token: string) => Promise<{ success: boolean; error?: string }>;
   loginWithGoogle: () => Promise<void>;
   signup: (email: string, password: string, name: string) => Promise<{ success: boolean; error?: string }>;
   logout: () => Promise<void>;
@@ -117,6 +118,20 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  const loginWithGoogleIdToken = async (token: string) => {
+    const { data, error } = await supabase.auth.signInWithIdToken({
+      provider: 'google',
+      token,
+    });
+    
+    if (error) return { success: false, error: error.message };
+    
+    if (data.user) {
+      await fetchProfile(data.user.id, data.user.email || '');
+    }
+    return { success: true };
+  };
+
   const signup = async (email: string, password: string, name: string) => {
     const { data, error } = await supabase.auth.signUp({
       email,
@@ -144,6 +159,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         isAdmin: false,
         login,
         loginWithGoogle,
+        loginWithGoogleIdToken,
         signup,
         logout,
         loading,
